@@ -1,2 +1,2 @@
 # PharmaStock_Optimizer
-Pharma Stock Description
+Pharmacies and hospitals face significant challenges in managing their inventory efficiently. Overstocking often leads to the expiry and wastage of medicines, while understocking results in stockouts that can delay treatment and lower customer satisfaction. In addition, demand for medicines is highly unpredictable due to seasonal illnesses, sudden outbreaks, and changing prescription trends. To address these issues, a PharmaStock Optimizer can be developed, which uses data-driven algorithms to forecast demand, balance stock levels, minimize wastage, and ensure the timely availability of essential medicines.
