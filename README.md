@@ -1,3 +1,3 @@
-# PharmaStock_Optimizer
+# Intelligent Pharmacy Inventory & Sales Management System
 Pharmacies and hospitals often struggle to maintain the right balance of medicines in their inventory. Overstocking not only ties up capital but also increases the risk of drugs expiring before use, leading to significant financial losses. On the other hand, understocking creates stockouts that can delay patient care, disrupt treatment schedules, and reduce customer trust. These challenges are made worse by the unpredictable nature of demand, which fluctuates due to seasonal illnesses, sudden disease outbreaks, and shifts in prescription patterns. To overcome these issues, 
 a PharmaStock Optimizer can be introduced—an intelligent system that leverages data-driven algorithms to accurately forecast demand, optimize stock levels, reduce wastage, and ensure that essential medicines are available when and where they are needed most.
