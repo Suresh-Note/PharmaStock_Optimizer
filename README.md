@@ -1,5 +1,5 @@
-# 💊 PharmaStock Optimizer
-### An Intelligent Pharmacy Inventory & Sales Management System
+# 💊 PharmaSight
+### An Intelligent Pharmacy Inventory Risk Analytics System for Pharmaceutical Supply Chain Optimization 
 
 > **Business Problem:** Pharmacies lose thousands every month — either by overstocking medicines that expire on the shelf, or by running out of critical drugs and losing patient trust. Manual tracking can't keep up. This system solves that with data-driven forecasting and real-time decision support.
 
