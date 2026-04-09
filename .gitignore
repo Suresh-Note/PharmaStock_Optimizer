@@ -1,0 +1,44 @@
+# Environment
+.env
+
+# Database (keep pharmastock_optimizer.db for distribution)
+*.db-shm
+*.db-wal
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.venv/
+
+# Streamlit
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Temp
+inspect_db.py
+test_api.py
+migrate_db.py
+
+# Runtime directories
+logs/
+ml_models/

@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  # --- PostgreSQL Database ---
+  postgres:
+    image: postgres:16-alpine
+    container_name: pharmastock-db
+    environment:
+      POSTGRES_DB: pharmastock
+      POSTGRES_USER: pharma_admin
+      POSTGRES_PASSWORD: pharma_secure_2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pharma_admin -d pharmastock"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # --- FastAPI REST API ---
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pharmastock-api
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - DB_URL=postgresql://pharma_admin:pharma_secure_2024@postgres:5432/pharmastock
+      - LOG_LEVEL=INFO
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # --- Streamlit Frontend ---
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pharmastock-ui
+    command: ["streamlit", "run", "app.py", "--server.headless", "true", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      - DB_URL=postgresql://pharma_admin:pharma_secure_2024@postgres:5432/pharmastock
+      - LOG_LEVEL=INFO
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
