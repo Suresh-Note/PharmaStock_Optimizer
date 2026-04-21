@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 💊 PharmaStock Optimizer
@@ -9,13 +10,61 @@
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org)
 [![XGBoost](https://img.shields.io/badge/XGBoost-ML-F37626?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://xgboost.readthedocs.io)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
-[![Tests](https://img.shields.io/badge/Tests-24%20Passed-4FC08D?style=for-the-badge&logo=pytest&logoColor=white)](#testing)
+[![Tests](https://img.shields.io/badge/Tests-24%20Passed-4FC08D?style=for-the-badge&logo=pytest&logoColor=white)](#-testing)
 
 ---
 
 *An industrial-grade inventory management system combining real-time stock tracking, interactive sales analytics, and XGBoost-based stockout prediction to optimize pharmaceutical supply chains.*
 
 </div>
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Secure Login
+<img width="1864" height="914" alt="Screenshot 2026-04-21 173304" src="https://github.com/user-attachments/assets/06c8db14-ebe5-4dfc-aa2c-30fb7f47e9b1" />
+
+
+### 📊 Dashboard Overview
+Real-time inventory metrics and color-coded stock levels across 33 medicines.
+<img width="1316" height="1470" alt="image" src="https://github.com/user-attachments/assets/9af7437e-9f8e-49c7-81eb-7e7af60e2a3d" />
+
+<img width="1900" height="852" alt="Screenshot 2026-04-21 173348" src="https://github.com/user-attachments/assets/31774085-9cc1-4388-9aec-6cb94f79e205" />
+
+
+### 📦 Inventory Management
+View and edit inventory with ML-predicted `Days_to_Stockout` for every medicine.
+
+| View Inventory | Manage Inventory |
+|:---:|:---:|
+| <img width="1880" height="850" alt="Screenshot 2026-04-21 173435" src="https://github.com/user-attachments/assets/b1a4eb18-7757-47d8-bbba-0fa47e9124ea" />
+ | <img width="1901" height="865" alt="Screenshot 2026-04-21 173457" src="https://github.com/user-attachments/assets/65b5e9be-a63f-4e01-a182-6625e60cc18d" />
+ |
+
+### 🛒 Orders & Payments
+Shopping cart with live stock validation and automatic inventory deduction.
+<img width="1881" height="887" alt="Screenshot 2026-04-21 173512" src="https://github.com/user-attachments/assets/299cb8b5-7b33-406a-8b40-d9a6e496c743" />
+
+
+### 📈 Sales Analytics
+Interactive filtering by date, month, or year — switch between bar and line chart views.
+
+| Bar Chart View | Line Chart View |
+|:---:|:---:|
+| <img width="1875" height="876" alt="Screenshot 2026-04-21 173546" src="https://github.com/user-attachments/assets/22021917-57ea-4ca8-a867-342683992813" />
+ | <img width="1906" height="890" alt="Screenshot 2026-04-21 173600" src="https://github.com/user-attachments/assets/c8ab1dbb-00af-468b-8244-49cb21c23087" />
+ |
+
+### 💊 Medicine Reference
+Per-medicine details: ATC code, uses, cautions, dosage, alternatives, and live stock count.
+<img width="1907" height="754" alt="Screenshot 2026-04-21 173626" src="https://github.com/user-attachments/assets/d3344d30-7d9f-49d2-8e54-ed1b46c16dc1" />
+
+
+### 🏭 Supplier View
+Medicines grouped by supplier with stock-level visualization.
+<img width="1907" height="887" alt="Screenshot 2026-04-21 173644" src="https://github.com/user-attachments/assets/d75ae7ef-4d6e-4eb0-a100-8d96accf83ea" />
+
 
 ---
 
@@ -33,6 +82,7 @@
 - [Testing](#-testing)
 - [Docker Deployment](#-docker-deployment)
 - [Contributing](#-contributing)
+- [Author](#-author)
 
 ---
 
@@ -53,28 +103,28 @@ This platform integrates **XGBoost regression models** trained on 33,000+ histor
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                     Streamlit UI (app.py)                     │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────┐ ┌──────┐│
-│  │Dashboard │ │Inventory │ │  Sales   │ │Supplier│ │Meds  ││
-│  │  Page    │ │  Page    │ │  Page    │ │  Page  │ │ Page ││
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └───┬────┘ └──┬───┘│
-├───────┼─────────────┼────────────┼───────────┼─────────┼────┤
-│       │    Service Layer (services/)         │         │     │
-│  ┌────▼──────┐ ┌────▼────┐ ┌─────▼────┐ ┌───▼────┐   │     │
-│  │ Inventory │ │  Sales  │ │  Orders  │ │Supplier│   │     │
-│  │  Service  │ │ Service │ │ Service  │ │Service │   │     │
-│  └────┬──────┘ └────┬────┘ └─────┬────┘ └───┬────┘   │     │
-├───────┼─────────────┼────────────┼───────────┼────────┼─────┤
-│       │    Data Layer                        │        │     │
-│  ┌────▼──────────────▼────────────▼──────────▼────┐ ┌─▼───┐│
-│  │         SQLAlchemy ORM (database/)             │ │JSON ││
-│  │  Models: User │ Medicine │ Inventory │ Sale    │ │Data ││
-│  └──────────────────┬────────────────────────────── └─────┘│
-│                     │                                      │
-│  ┌──────────────────▼───────────────────────────────────┐  │
-│  │              Cross-Cutting Concerns                   │  │
-│  │  Auth (bcrypt+RBAC) │ ML (XGBoost) │ Logging │ Config│  │
-│  └──────────────────────────────────────────────────────┘  │
+│                     Streamlit UI (app.py)                    │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────┐ ┌──────┐  │
+│  │Dashboard │ │Inventory │ │  Sales   │ │Supplier│ │Meds  │  │
+│  │  Page    │ │  Page    │ │  Page    │ │  Page  │ │ Page │  │
+│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └───┬────┘ └──┬───┘  │
+├───────┼────────────┼────────────┼───────────┼─────────┼──────┤
+│       │       Service Layer (services/)     │         │      │
+│  ┌────▼──────┐ ┌───▼─────┐ ┌────▼─────┐ ┌───▼────┐    │      │
+│  │ Inventory │ │  Sales  │ │  Orders  │ │Supplier│    │      │
+│  │  Service  │ │ Service │ │ Service  │ │Service │    │      │
+│  └────┬──────┘ └────┬────┘ └────┬─────┘ └───┬────┘    │      │
+├───────┼────────────┼────────────┼───────────┼─────────┼──────┤
+│       │    Data Layer                       │         │      │
+│  ┌────▼────────────▼────────────▼───────────▼────┐ ┌──▼───┐  │
+│  │         SQLAlchemy ORM (database/)            │ │ JSON │  │
+│  │  Models: User │ Medicine │ Inventory │ Sale   │ │ Data │  │
+│  └──────────────────┬────────────────────────────┘ └──────┘  │
+│                     │                                        │
+│  ┌──────────────────▼──────────────────────────────────┐     │
+│  │             Cross-Cutting Concerns                  │     │
+│  │  Auth (bcrypt+RBAC) │ ML (XGBoost) │ Logging        │     │
+│  └─────────────────────────────────────────────────────┘     │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -110,40 +160,40 @@ This platform integrates **XGBoost regression models** trained on 33,000+ histor
 ## ✨ Key Features
 
 ### 📊 Dashboard
-Real-time inventory overview with color-coded stock charts and sidebar metrics
+Real-time inventory overview with color-coded stock charts and sidebar metrics (total medicines, low stock, expired).
 
 ### 📦 Inventory Management
-CRUD operations with AI-powered stockout prediction on every update
+CRUD operations with AI-powered stockout prediction on every update.
 
 ### 🛒 Orders & Payments
-Shopping cart with cumulative stock validation and automatic inventory deduction
+Shopping cart with cumulative stock validation and automatic inventory deduction.
 
 ### 📈 Sales Analytics
-Filter by date/month/year with interactive bar and line charts
+Filter by date / month / year with interactive bar and line charts across 33,000+ sales records.
 
 ### 🏭 Supplier Management
-View medicines grouped by supplier with stock visualizations
+View medicines grouped by supplier with stock visualizations.
 
 ### 💊 Medicine Reference
-33 medicines with ATC codes, dosage, cautions, and real-time stock display
+33 medicines with ATC codes, dosage, cautions, alternatives, and real-time stock display.
 
 ### 🔐 Authentication & RBAC
-bcrypt hashing, role-based access (admin/user), session timeout, email recovery
+bcrypt hashing, role-based access (admin/user), session timeout, email recovery.
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **Python 3.10+** 
+- **Python 3.10+**
 - **pip** package manager
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/pharma_stock.git
-cd pharma_stock
+git clone https://github.com/Suresh-Note/PharmaStock_Optimizer.git
+cd PharmaStock_Optimizer/pharma_stock
 
 # Install dependencies
 pip install -r requirements.txt
@@ -181,56 +231,59 @@ python -m pytest tests/ -v
 ## 📁 Project Structure
 
 ```
-pharma_stock/
-├── app.py                          # Entry point (thin router)
-├── config.py                       # Centralized Pydantic settings
-├── PharmaStock.py                  # Legacy single-file version
+PharmaStock_Optimizer/
+├── docs/
+│   └── screenshots/                # UI screenshots for documentation
 │
-├── database/                       # Data access layer
-│   ├── connection.py               # SQLAlchemy engine + session factory
-│   └── models.py                   # ORM models (User, Medicine, Inventory, Sale)
-│
-├── auth/                           # Authentication module
-│   ├── security.py                 # bcrypt hashing + session management
-│   ├── email.py                    # SMTP email service
-│   └── service.py                  # Auth orchestration (register/login/delete)
-│
-├── services/                       # Business logic layer
-│   ├── inventory.py                # Inventory CRUD + summary
-│   ├── sales.py                    # Sales filtering + queries
-│   ├── orders.py                   # Cart management + order processing
-│   └── suppliers.py                # Supplier-medicine mappings
-│
-├── ml/                             # Machine learning pipeline
-│   └── forecasting.py              # XGBoost training + stockout prediction
-│
-├── pages_ui/                       # Streamlit page modules
-│   ├── dashboard.py                # Dashboard view
-│   ├── inventory_page.py           # Inventory management
-│   ├── sales_page.py               # Sales analytics
-│   ├── medicines_page.py           # Medicine reference
-│   └── suppliers_page.py           # Supplier view
-│
-├── utils/                          # Cross-cutting utilities
-│   ├── logger.py                   # Structured logging
-│   ├── exceptions.py               # Custom exception hierarchy
-│   └── validators.py               # Pydantic input schemas
-│
-├── data/
-│   ├── medicines_info.json         # Medicine reference data
-│   └── expanded_sales_data.csv     # Historical sales dataset (33K rows)
-│
-├── tests/                          # pytest test suite (24 tests)
-│   ├── conftest.py                 # Fixtures (in-memory DB, sample data)
-│   ├── test_auth.py                # Auth service tests (9 tests)
-│   ├── test_inventory.py           # Inventory CRUD tests (9 tests)
-│   └── test_forecasting.py         # ML prediction tests (4 tests)
-│
-├── Dockerfile                      # Production container
-├── docker-compose.yml              # Container orchestration
-├── requirements.txt                # Python dependencies
-├── .env                            # Environment secrets (not committed)
-└── .gitignore                      # Git exclusions
+└── pharma_stock/
+    ├── app.py                      # Entry point (thin router)
+    ├── config.py                   # Centralized Pydantic settings
+    ├── PharmaStock.py              # Legacy single-file version
+    │
+    ├── database/                   # Data access layer
+    │   ├── connection.py           # SQLAlchemy engine + session factory
+    │   └── models.py               # ORM models (User, Medicine, Inventory, Sale)
+    │
+    ├── auth/                       # Authentication module
+    │   ├── security.py             # bcrypt hashing + session management
+    │   ├── email.py                # SMTP email service
+    │   └── service.py              # Auth orchestration (register/login/delete)
+    │
+    ├── services/                   # Business logic layer
+    │   ├── inventory.py            # Inventory CRUD + summary
+    │   ├── sales.py                # Sales filtering + queries
+    │   ├── orders.py               # Cart management + order processing
+    │   └── suppliers.py            # Supplier-medicine mappings
+    │
+    ├── ml/                         # Machine learning pipeline
+    │   └── forecasting.py          # XGBoost training + stockout prediction
+    │
+    ├── pages_ui/                   # Streamlit page modules
+    │   ├── dashboard.py            # Dashboard view
+    │   ├── inventory_page.py       # Inventory management
+    │   ├── sales_page.py           # Sales analytics
+    │   ├── medicines_page.py       # Medicine reference
+    │   └── suppliers_page.py       # Supplier view
+    │
+    ├── utils/                      # Cross-cutting utilities
+    │   ├── logger.py               # Structured logging
+    │   ├── exceptions.py           # Custom exception hierarchy
+    │   └── validators.py           # Pydantic input schemas
+    │
+    ├── data/
+    │   ├── medicines_info.json     # Medicine reference data
+    │   └── expanded_sales_data.csv # Historical sales dataset (33K rows)
+    │
+    ├── tests/                      # pytest test suite (24 tests)
+    │   ├── conftest.py             # Fixtures (in-memory DB, sample data)
+    │   ├── test_auth.py            # Auth service tests (9 tests)
+    │   ├── test_inventory.py       # Inventory CRUD tests (9 tests)
+    │   └── test_forecasting.py     # ML prediction tests (4 tests)
+    │
+    ├── Dockerfile                  # Production container
+    ├── docker-compose.yml          # Container orchestration
+    ├── requirements.txt            # Python dependencies
+    └── .env                        # Environment secrets (not committed)
 ```
 
 ---
@@ -350,6 +403,15 @@ The container includes a health check endpoint at `/_stcore/health`.
 3. Run tests (`python -m pytest tests/ -v`)
 4. Commit changes (`git commit -m 'Add your feature'`)
 5. Push and open a Pull Request
+
+---
+
+## 👨‍💻 Author
+
+**Suresh Kanchamreddy**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Suresh--Note-181717?style=flat-square&logo=github)](https://github.com/Suresh-Note)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/suresh-kanchamreddy)
 
 ---
 
