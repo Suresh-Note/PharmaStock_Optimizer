@@ -1,4 +1,5 @@
 
+
 # 💊 PharmaStock Optimizer
 
 **AI-Powered Pharmaceutical Inventory Management & Demand Forecasting Platform**
@@ -480,3 +481,4 @@ The container includes a health check endpoint at `/_stcore/health`.
 **Built with ❤️ using Streamlit · SQLAlchemy · XGBoost · Pydantic · Docker**
 
 </div>
+
