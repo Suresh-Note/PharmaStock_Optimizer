@@ -275,8 +275,8 @@ bcrypt hashing, role-based access (admin/user), session timeout, email recovery.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Suresh-Note/PharmaStock_optimizer.git
-cd PharmaStock_optimizer
+git clone https://github.com/Suresh-Note/PharmaStock_Optimizer.git
+cd PharmaStock_Optimizer
 
 # Install dependencies
 pip install -r requirements.txt
@@ -314,7 +314,7 @@ python -m pytest tests/ -v
 ## 📁 Project Structure
 
 ```
-PharmaStock_optimizer/
+PharmaStock_Optimizer/
 ├── app.py                          # Entry point (thin router)
 ├── config.py                       # Centralized Pydantic settings
 ├── PharmaStock.py                  # Legacy single-file version
