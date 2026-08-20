@@ -35,47 +35,37 @@ Full technical detail (train/test splitting, cross-validation, feature engineeri
 ## 📸 Screenshots
 
 ### 🔐 Secure Login
-<img width="1864" height="914" alt="Screenshot 2026-04-21 173304" src="https://github.com/user-attachments/assets/06c8db14-ebe5-4dfc-aa2c-30fb7f47e9b1" />
-
+<img src="assets/screenshots/login.png" alt="Login page" width="100%" />
 
 ### 📊 Dashboard Overview
 Real-time inventory metrics and color-coded stock levels across 33 medicines.
-<img width="1316" height="1470" alt="image" src="https://github.com/user-attachments/assets/9af7437e-9f8e-49c7-81eb-7e7af60e2a3d" />
-
-<img width="1900" height="852" alt="Screenshot 2026-04-21 173348" src="https://github.com/user-attachments/assets/31774085-9cc1-4388-9aec-6cb94f79e205" />
-
+<img src="assets/screenshots/dashboard.png" alt="Dashboard overview" width="100%" />
 
 ### 📦 Inventory Management
 View and edit inventory with ML-predicted `Days_to_Stockout` for every medicine.
 
 | View Inventory | Manage Inventory |
 |:---:|:---:|
-| <img width="1880" height="850" alt="Screenshot 2026-04-21 173435" src="https://github.com/user-attachments/assets/b1a4eb18-7757-47d8-bbba-0fa47e9124ea" />
- | <img width="1901" height="865" alt="Screenshot 2026-04-21 173457" src="https://github.com/user-attachments/assets/65b5e9be-a63f-4e01-a182-6625e60cc18d" />
- |
+| <img src="assets/screenshots/inventory-view.png" alt="View inventory" /> | <img src="assets/screenshots/inventory-manage.png" alt="Manage inventory" /> |
 
 ### 🛒 Orders & Payments
 Shopping cart with live stock validation and automatic inventory deduction.
-<img width="1881" height="887" alt="Screenshot 2026-04-21 173512" src="https://github.com/user-attachments/assets/299cb8b5-7b33-406a-8b40-d9a6e496c743" />
-
+<img src="assets/screenshots/orders.png" alt="Orders and payments" width="100%" />
 
 ### 📈 Sales Analytics
 Interactive filtering by date, month, or year — switch between bar and line chart views.
 
 | Bar Chart View | Line Chart View |
 |:---:|:---:|
-| <img width="1875" height="876" alt="Screenshot 2026-04-21 173546" src="https://github.com/user-attachments/assets/22021917-57ea-4ca8-a867-342683992813" />
- | <img width="1906" height="890" alt="Screenshot 2026-04-21 173600" src="https://github.com/user-attachments/assets/c8ab1dbb-00af-468b-8244-49cb21c23087" />
- |
+| <img src="assets/screenshots/sales-bar.png" alt="Sales bar chart" /> | <img src="assets/screenshots/sales-line.png" alt="Sales line chart" /> |
 
 ### 💊 Medicine Reference
 Per-medicine details: ATC code, uses, cautions, dosage, alternatives, and live stock count.
-<img width="1907" height="754" alt="Screenshot 2026-04-21 173626" src="https://github.com/user-attachments/assets/d3344d30-7d9f-49d2-8e54-ed1b46c16dc1" />
-
+<img src="assets/screenshots/medicines.png" alt="Medicine reference" width="100%" />
 
 ### 🏭 Supplier View
 Medicines grouped by supplier with stock-level visualization.
-<img width="1907" height="887" alt="Screenshot 2026-04-21 173644" src="https://github.com/user-attachments/assets/d75ae7ef-4d6e-4eb0-a100-8d96accf83ea" />
+<img src="assets/screenshots/suppliers.png" alt="Supplier view" width="100%" />
 
 
 ---
