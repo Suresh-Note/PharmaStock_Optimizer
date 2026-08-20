@@ -1,6 +1,4 @@
 
-<div align="center">
-
 # 💊 PharmaStock Optimizer
 
 **AI-Powered Pharmaceutical Inventory Management & Demand Forecasting Platform**
