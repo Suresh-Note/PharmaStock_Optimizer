@@ -5,6 +5,9 @@
 
 **AI-Powered Pharmaceutical Inventory Management & Demand Forecasting Platform**
 
+### 🚀 [**Live Demo →**](https://pharma-stockout-forecasting-ln4ycfhwmmjodczjwyddkl.streamlit.app)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-0F766E?style=for-the-badge&logo=streamlit&logoColor=white)](https://pharma-stockout-forecasting-ln4ycfhwmmjodczjwyddkl.streamlit.app)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org)
