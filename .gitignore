@@ -1,0 +1,48 @@
+# Environment
+.env
+
+# Database (keep pharmastock_optimizer.db for distribution)
+*.db-shm
+*.db-wal
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.venv/
+
+# Streamlit (keep the shared theme, ignore any local/secret config)
+.streamlit/*
+!.streamlit/config.toml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code
+.claude/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Temp
+inspect_db.py
+test_api.py
+migrate_db.py
+
+# Runtime directories
+logs/
+ml_models/

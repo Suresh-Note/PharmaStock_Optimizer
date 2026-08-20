@@ -1,0 +1,299 @@
+[
+    {
+        "Medicine_Name": "Diclofenac",
+        "ATC_Code": "M01AB05",
+        "Description": "A nonsteroidal anti-inflammatory drug (NSAID) used to treat pain and inflammatory diseases such as gout.",
+        "Uses": "Reduces inflammation and pain in conditions like arthritis or acute injury.",
+        "Cautions": "May increase the risk of serious cardiovascular events. Use with caution in patients with cardiovascular disease.",
+        "Dosage": "50 mg two to three times daily; maximum daily dose should not exceed 150 mg.",
+        "Alternatives": ["Ibuprofen", "Naproxen"]
+    },
+    {
+        "Medicine_Name": "Ketoprofen",
+        "ATC_Code": "M01AE03",
+        "Description": "An NSAID used for its analgesic and anti-inflammatory properties.",
+        "Uses": "Treats pain, fever, and inflammation in conditions like rheumatoid arthritis and osteoarthritis.",
+        "Cautions": "May cause gastrointestinal discomfort and increase cardiovascular risk.",
+        "Dosage": "50-100 mg up to three times daily; do not exceed 300 mg per day.",
+        "Alternatives": ["Diclofenac", "Ibuprofen"]
+    },
+    {
+        "Medicine_Name": "Naproxen",
+        "ATC_Code": "M01AE02",
+        "Description": "An NSAID effective in reducing pain, fever, inflammation, and stiffness.",
+        "Uses": "Commonly used for arthritis, menstrual cramps, tendinitis, and gout.",
+        "Cautions": "May increase the risk of heart attack or stroke; use the lowest effective dose for the shortest duration.",
+        "Dosage": "250-500 mg twice daily; maximum daily dose is 1000 mg.",
+        "Alternatives": ["Ibuprofen", "Diclofenac"]
+    },
+    {
+        "Medicine_Name": "Ibuprofen",
+        "ATC_Code": "M01AE01",
+        "Description": "An NSAID used for treating pain, fever, and inflammation.",
+        "Uses": "Effective for headaches, dental pain, menstrual cramps, muscle aches, or arthritis.",
+        "Cautions": "Can increase the risk of heart attack or stroke, especially with prolonged use.",
+        "Dosage": "200-400 mg every 4-6 hours as needed; maximum daily dose is 1200 mg.",
+        "Alternatives": ["Naproxen", "Diclofenac"]
+    },
+    {
+        "Medicine_Name": "Dexibuprofen",
+        "ATC_Code": "M01AE14",
+        "Description": "The active enantiomer of ibuprofen with anti-inflammatory and analgesic properties.",
+        "Uses": "Used for pain relief in osteoarthritis, dysmenorrhea, and dental pain.",
+        "Cautions": "Similar cardiovascular and gastrointestinal risks as other NSAIDs.",
+        "Dosage": "200-400 mg three times daily; do not exceed 1200 mg per day.",
+        "Alternatives": ["Ibuprofen", "Naproxen"]
+    },
+    {
+        "Medicine_Name": "Aspirin",
+        "ATC_Code": "N02BA01",
+        "Description": "An NSAID and antiplatelet agent used to reduce pain, fever, or inflammation.",
+        "Uses": "Treats mild to moderate pain, reduces fever, and used for its antiplatelet effects in cardiovascular conditions.",
+        "Cautions": "Can cause gastrointestinal bleeding and should be used cautiously in patients with bleeding disorders.",
+        "Dosage": "Pain/fever: 325-650 mg every 4-6 hours; Cardiovascular protection: 81-325 mg daily.",
+        "Alternatives": ["Paracetamol", "Ibuprofen"]
+    },
+    {
+        "Medicine_Name": "Diflunisal",
+        "ATC_Code": "N02BA11",
+        "Description": "A salicylate NSAID with analgesic and anti-inflammatory properties.",
+        "Uses": "Used to relieve mild to moderate pain and inflammation in conditions like osteoarthritis.",
+        "Cautions": "May increase the risk of serious cardiovascular events and gastrointestinal bleeding.",
+        "Dosage": "500 mg initially, followed by 250-500 mg every 8-12 hours; maximum daily dose is 1500 mg.",
+        "Alternatives": ["Naproxen", "Ibuprofen"]
+    },
+    {
+        "Medicine_Name": "Paracetamol",
+        "ATC_Code": "N02BE01",
+        "Description": "Also known as acetaminophen, used to treat pain and fever.",
+        "Uses": "Effective for mild to moderate pain relief such as headaches and muscle aches, and for reducing fever.",
+        "Cautions": "Overdose can lead to severe liver damage; avoid combining with other products containing acetaminophen.",
+        "Dosage": "500 mg to 1 g every 4-6 hours as needed; maximum daily dose should not exceed 4 g.",
+        "Alternatives": ["Ibuprofen", "Aspirin"]
+    },
+    {
+        "Medicine_Name": "Phenacetin",
+        "ATC_Code": "N02BE04",
+        "Description": "An analgesic and antipyretic agent, now largely withdrawn due to nephrotoxicity.",
+        "Uses": "Historically used for pain and fever relief.",
+        "Cautions": "Associated with kidney damage and carcinogenicity; no longer recommended.",
+        "Dosage": "Not applicable due to withdrawal from the market.",
+        "Alternatives": ["Paracetamol", "Ibuprofen"]
+    },
+    {
+        "Medicine_Name": "Diazepam",
+        "ATC_Code": "N05BA01",
+        "Description": "A benzodiazepine used for its anxiolytic, anticonvulsant, and muscle relaxant properties.",
+        "Uses": "Treats anxiety, seizures, muscle spasms, and alcohol withdrawal symptoms.",
+        "Cautions": "Can cause sedation and dependence; use with caution in patients with a history of substance abuse.",
+        "Dosage": "2-10 mg two to four times daily, depending on the condition being treated.",
+        "Alternatives": ["Alprazolam", "Lorazepam"]
+    },
+    {
+        "Medicine_Name": "Alprazolam",
+        "ATC_Code": "N05BA12",
+        "Description": "A short-acting benzodiazepine with anxiolytic effects.",
+        "Uses": "Primarily used to manage anxiety disorders and panic attacks.",
+        "Cautions": "Risk of dependence and withdrawal symptoms; should be used for short durations.",
+        "Dosage": "0.25-0.5 mg three times daily; maximum daily dose is 4 mg.",
+        "Alternatives": ["Diazepam", "Clonazepam"]
+    },
+    {
+        "Medicine_Name": "Zolpidem",
+        "ATC_Code": "N05CF02",
+        "Description": "A sedative-hypnotic used for the short-term treatment of insomnia.",
+        "Uses": "Helps individuals fall asleep faster and reduces nighttime awakenings.",
+        "Cautions": "May cause dizziness, daytime drowsiness, and complex sleep behaviors like sleepwalking.",
+        "Dosage": "5 mg for women and 5-10 mg for men immediately before bedtime; maximum daily dose is 10 mg.",
+        "Alternatives": ["Eszopiclone", "Ramelteon"]
+    },
+    {
+        "Medicine_Name": "Eszopiclone",
+        "ATC_Code": "N05CF04",
+        "Description": "A non-benzodiazepine hypnotic agent used for the treatment of insomnia.",
+        "Uses": "Improves sleep onset and maintenance in individuals with insomnia.",
+        "Cautions": "May cause next-day impairment, dizziness, and hallucinations. Risk of dependence with prolonged use.",
+        "Dosage": "1 mg immediately before bedtime; may increase to 2-3 mg if clinically indicated.",
+        "Alternatives": ["Zolpidem", "Ramelteon"]
+    },
+    {
+        "Medicine_Name": "Salbutamol",
+        "ATC_Code": "R03AC02",
+        "Description": "A short-acting beta-2 adrenergic receptor agonist used to relieve bronchospasm. Also known as Albuterol.",
+        "Uses": "Provides quick relief from acute episodes of bronchospasm in asthma and COPD.",
+        "Cautions": "May cause tachycardia, palpitations, and tremors. Use with caution in patients with cardiovascular disorders.",
+        "Dosage": "Inhalation: 100-200 mcg every 4-6 hours as needed.",
+        "Alternatives": ["Levalbuterol", "Terbutaline"]
+    },
+    {
+        "Medicine_Name": "Formoterol",
+        "ATC_Code": "R03AC13",
+        "Description": "A long-acting beta-2 adrenergic receptor agonist used in the management of asthma and COPD.",
+        "Uses": "Provides long-term control of bronchospasm and improves lung function.",
+        "Cautions": "Not for relief of acute bronchospasm. Should be used with an inhaled corticosteroid.",
+        "Dosage": "Inhalation: 12 mcg twice daily.",
+        "Alternatives": ["Salmeterol", "Indacaterol"]
+    },
+    {
+        "Medicine_Name": "Budesonide",
+        "ATC_Code": "R03BA02",
+        "Description": "An inhaled corticosteroid used for the maintenance treatment of asthma and COPD.",
+        "Uses": "Reduces inflammation in the airways, leading to improved breathing.",
+        "Cautions": "May cause oral thrush; rinse mouth after use.",
+        "Dosage": "Inhalation: 200-400 mcg twice daily.",
+        "Alternatives": ["Fluticasone", "Beclomethasone"]
+    },
+    {
+        "Medicine_Name": "Loratadine",
+        "ATC_Code": "R06AX13",
+        "Description": "A second-generation antihistamine used to treat allergic rhinitis and urticaria.",
+        "Uses": "Relieves symptoms of hay fever and other allergies.",
+        "Cautions": "Generally well-tolerated; may cause headache or dry mouth.",
+        "Dosage": "10 mg once daily.",
+        "Alternatives": ["Cetirizine", "Fexofenadine"]
+    },
+    {
+        "Medicine_Name": "Cetirizine",
+        "ATC_Code": "R06AE07",
+        "Description": "A second-generation antihistamine used to treat allergy symptoms.",
+        "Uses": "Effective for allergic rhinitis and chronic urticaria.",
+        "Cautions": "May cause drowsiness in some individuals.",
+        "Dosage": "5-10 mg once daily.",
+        "Alternatives": ["Loratadine", "Fexofenadine"]
+    },
+    {
+        "Medicine_Name": "Diphenhydramine",
+        "ATC_Code": "R06AA02",
+        "Description": "A first-generation antihistamine with sedative and antiemetic properties.",
+        "Uses": "Treats allergic reactions, motion sickness, and used as a sleep aid.",
+        "Cautions": "Causes significant drowsiness; avoid alcohol and other CNS depressants.",
+        "Dosage": "25-50 mg every 4-6 hours; maximum daily dose is 300 mg.",
+        "Alternatives": ["Chlorpheniramine", "Promethazine"]
+    },
+    {
+        "Medicine_Name": "Amoxicillin",
+        "ATC_Code": "J01CA04",
+        "Description": "A broad-spectrum beta-lactam antibiotic used to treat various bacterial infections.",
+        "Uses": "Effective against infections of the ear, nose, throat, skin, and urinary tract.",
+        "Cautions": "May cause allergic reactions; use with caution in patients with penicillin allergy.",
+        "Dosage": "500 mg every 8 hours or 875 mg every 12 hours.",
+        "Alternatives": ["Ampicillin", "Cefuroxime"]
+    },
+    {
+        "Medicine_Name": "Penicillin",
+        "ATC_Code": "J01CE02",
+        "Description": "A narrow-spectrum beta-lactam antibiotic. Also known as Penicillin V.",
+        "Uses": "Treats mild to moderate infections like pharyngitis and tonsillitis.",
+        "Cautions": "May cause hypersensitivity reactions.",
+        "Dosage": "500 mg every 6-8 hours.",
+        "Alternatives": ["Amoxicillin", "Erythromycin"]
+    },
+    {
+        "Medicine_Name": "Cefalexin",
+        "ATC_Code": "J01DB01",
+        "Description": "A first-generation cephalosporin antibiotic.",
+        "Uses": "Effective against respiratory, skin, and urinary tract infections.",
+        "Cautions": "Use with caution in patients with penicillin allergy due to cross-reactivity.",
+        "Dosage": "250-500 mg every 6 hours; maximum daily dose is 4 g.",
+        "Alternatives": ["Cefadroxil", "Amoxicillin"]
+    },
+    {
+        "Medicine_Name": "Ceftriaxone",
+        "ATC_Code": "J01DD04",
+        "Description": "A third-generation cephalosporin antibiotic for severe infections.",
+        "Uses": "Effective against meningitis, pneumonia, and abdominal infections.",
+        "Cautions": "May cause allergic reactions. Can lead to pseudomembranous colitis.",
+        "Dosage": "1-2 g once daily; maximum daily dose is 4 g.",
+        "Alternatives": ["Cefotaxime", "Levofloxacin"]
+    },
+    {
+        "Medicine_Name": "Cefixime",
+        "ATC_Code": "J01DD08",
+        "Description": "An oral third-generation cephalosporin antibiotic.",
+        "Uses": "Effective against respiratory, urinary tract infections, and gonorrhea.",
+        "Cautions": "Use with caution in patients with penicillin allergy.",
+        "Dosage": "200-400 mg once daily or divided into two doses.",
+        "Alternatives": ["Cefpodoxime", "Amoxicillin-Clavulanate"]
+    },
+    {
+        "Medicine_Name": "Atorvastatin",
+        "ATC_Code": "C10AA05",
+        "Description": "A statin medication used to lower blood cholesterol and reduce cardiovascular risk.",
+        "Uses": "Treats hypercholesterolemia and prevents cardiovascular events.",
+        "Cautions": "May cause muscle pain or weakness; rare risk of rhabdomyolysis.",
+        "Dosage": "10-80 mg once daily.",
+        "Alternatives": ["Rosuvastatin", "Simvastatin"]
+    },
+    {
+        "Medicine_Name": "Rosuvastatin",
+        "ATC_Code": "C10AA07",
+        "Description": "A statin medication used to treat high cholesterol.",
+        "Uses": "Lowers LDL cholesterol and triglycerides; increases HDL cholesterol.",
+        "Cautions": "Monitor for muscle symptoms and liver enzyme abnormalities.",
+        "Dosage": "5-40 mg once daily.",
+        "Alternatives": ["Atorvastatin", "Pravastatin"]
+    },
+    {
+        "Medicine_Name": "Metformin",
+        "ATC_Code": "A10BA02",
+        "Description": "An oral antidiabetic medication for type 2 diabetes.",
+        "Uses": "Improves blood sugar control in adults with type 2 diabetes.",
+        "Cautions": "May cause gastrointestinal upset; rare risk of lactic acidosis.",
+        "Dosage": "500-1000 mg twice daily; maximum 2500 mg daily.",
+        "Alternatives": ["Gliclazide", "Sitagliptin"]
+    },
+    {
+        "Medicine_Name": "Gliclazide",
+        "ATC_Code": "A10BB09",
+        "Description": "A sulfonylurea antidiabetic medication for type 2 diabetes.",
+        "Uses": "Stimulates insulin secretion to lower blood sugar levels.",
+        "Cautions": "Risk of hypoglycemia; use with caution in elderly patients.",
+        "Dosage": "40-320 mg daily, as single or divided doses.",
+        "Alternatives": ["Glimepiride", "Metformin"]
+    },
+    {
+        "Medicine_Name": "Sitagliptin",
+        "ATC_Code": "A10BH01",
+        "Description": "A DPP-4 inhibitor for improving glycemic control in type 2 diabetes.",
+        "Uses": "Enhances incretin levels, increasing insulin release.",
+        "Cautions": "Generally well-tolerated; rare cases of pancreatitis reported.",
+        "Dosage": "100 mg once daily.",
+        "Alternatives": ["Vildagliptin", "Linagliptin"]
+    },
+    {
+        "Medicine_Name": "Ethinylestradiol",
+        "ATC_Code": "G03AA10",
+        "Description": "A synthetic estrogen used in hormonal contraceptives.",
+        "Uses": "Component of combined oral contraceptive pills.",
+        "Cautions": "Increases risk of thromboembolic events; contraindicated in smokers over 35.",
+        "Dosage": "Typically 20-35 mcg daily in combination with a progestin.",
+        "Alternatives": ["Estradiol", "Mestranol"]
+    },
+    {
+        "Medicine_Name": "Levonorgestrel",
+        "ATC_Code": "G03AC03",
+        "Description": "A progestin used in contraceptives and emergency contraception.",
+        "Uses": "Prevents ovulation and fertilization.",
+        "Cautions": "May cause menstrual irregularities.",
+        "Dosage": "Emergency: 1.5 mg single dose within 72 hours.",
+        "Alternatives": ["Ulipristal acetate", "Copper IUD"]
+    },
+    {
+        "Medicine_Name": "Methotrexate",
+        "ATC_Code": "L04AX03",
+        "Description": "An antimetabolite used to treat cancer and autoimmune diseases.",
+        "Uses": "Treats cancer, severe psoriasis, and rheumatoid arthritis.",
+        "Cautions": "Can cause severe toxicity; monitor blood counts and organ function.",
+        "Dosage": "For RA: typically 7.5-25 mg once weekly.",
+        "Alternatives": ["Leflunomide", "Sulfasalazine"]
+    },
+    {
+        "Medicine_Name": "Cyclosporine",
+        "ATC_Code": "L04AD01",
+        "Description": "An immunosuppressant for organ rejection prevention and autoimmune conditions.",
+        "Uses": "Prevents transplant rejection; treats severe RA and psoriasis.",
+        "Cautions": "May cause nephrotoxicity and hypertension; monitor closely.",
+        "Dosage": "5-15 mg/kg/day in divided doses for transplantation.",
+        "Alternatives": ["Tacrolimus", "Azathioprine"]
+    }
+]
