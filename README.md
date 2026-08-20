@@ -17,8 +17,6 @@
 
 *An industrial-grade inventory management system combining real-time stock tracking, interactive sales analytics, and XGBoost-based stockout prediction to optimize pharmaceutical supply chains.*
 
-</div>
-
 ---
 
 ## 🎯 Why This Project Is Different
