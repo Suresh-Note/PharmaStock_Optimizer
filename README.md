@@ -3,7 +3,7 @@
 
 # 💊 PharmaStock Optimizer
 
-**AI-Powered Pharmaceutical Inventory Management & Sales Analytics Platform**
+**AI-Powered Pharmaceutical Inventory Management & Demand Forecasting Platform**
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
@@ -17,6 +17,18 @@
 *An industrial-grade inventory management system combining real-time stock tracking, interactive sales analytics, and XGBoost-based stockout prediction to optimize pharmaceutical supply chains.*
 
 </div>
+
+---
+
+## 🎯 Why This Project Is Different
+
+Most demo ML projects report one impressive-looking accuracy number and stop there. This one goes a step further: it checks whether that number can actually be trusted — and reports honestly when it can't.
+
+- **Caught a real overfitting problem, and documented it instead of hiding it** — the first accuracy check looked great (R² ≈ 0.90), but that number came from testing the model on data it had already seen. Once tested properly on unseen data, that score dropped close to zero — a classic sign the model had memorized the past rather than learned to predict the future.
+- **Proved the model is actually useful, instead of assuming it** — it's benchmarked against a simple "assume tomorrow looks like yesterday" guess, and beats it by **~27% on prediction error**, on the same unseen data. That's a concrete, honest number instead of a vague "it works."
+- **The reasoning is fully visible, not just the code** — an [executed notebook](notebooks/eda_and_modeling.ipynb) walks through the data, the mistake that was caught, and the fix; the same results are also viewable live in the app's Model Insights page.
+
+Full technical detail (train/test splitting, cross-validation, feature engineering) is in [Machine Learning](#-machine-learning) below.
 
 ---
 
@@ -70,14 +82,15 @@ Medicines grouped by supplier with stock-level visualization.
 
 ## 📋 Table of Contents
 
+- [Why This Project Is Different](#-why-this-project-is-different)
 - [Overview](#-overview)
 - [Architecture](#-architecture)
+- [Machine Learning](#-machine-learning)
 - [Tech Stack](#-tech-stack)
 - [Key Features](#-key-features)
 - [Getting Started](#-getting-started)
 - [Project Structure](#-project-structure)
 - [Database Schema](#-database-schema)
-- [Machine Learning](#-machine-learning)
 - [Security](#-security)
 - [Testing](#-testing)
 - [Docker Deployment](#-docker-deployment)
@@ -102,31 +115,33 @@ This platform integrates **XGBoost regression models** trained on 33,000+ histor
 ## 🏗 Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                     Streamlit UI (app.py)                    │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────┐ ┌──────┐  │
-│  │Dashboard │ │Inventory │ │  Sales   │ │Supplier│ │Meds  │  │
-│  │  Page    │ │  Page    │ │  Page    │ │  Page  │ │ Page │  │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └───┬────┘ └──┬───┘  │
-├───────┼────────────┼────────────┼───────────┼─────────┼──────┤
-│       │       Service Layer (services/)     │         │      │
-│  ┌────▼──────┐ ┌───▼─────┐ ┌────▼─────┐ ┌───▼────┐    │      │
-│  │ Inventory │ │  Sales  │ │  Orders  │ │Supplier│    │      │
-│  │  Service  │ │ Service │ │ Service  │ │Service │    │      │
-│  └────┬──────┘ └────┬────┘ └────┬─────┘ └───┬────┘    │      │
-├───────┼────────────┼────────────┼───────────┼─────────┼──────┤
-│       │    Data Layer                       │         │      │
-│  ┌────▼────────────▼────────────▼───────────▼────┐ ┌──▼───┐  │
-│  │         SQLAlchemy ORM (database/)            │ │ JSON │  │
-│  │  Models: User │ Medicine │ Inventory │ Sale   │ │ Data │  │
-│  └──────────────────┬────────────────────────────┘ └──────┘  │
-│                     │                                        │
-│  ┌──────────────────▼──────────────────────────────────┐     │
-│  │             Cross-Cutting Concerns                  │     │
-│  │  Auth (bcrypt+RBAC) │ ML (XGBoost) │ Logging        │     │
-│  └─────────────────────────────────────────────────────┘     │
-└──────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│                          Streamlit UI (app.py)                         │
+│ ┌─────────┐┌─────────┐┌───────┐┌────────┐┌──────┐┌──────────────────┐ │
+│ │Dashboard││Inventory││ Sales ││Supplier││ Meds ││  Model Insights  │ │
+│ │  Page   ││  Page   ││ Page  ││  Page  ││ Page ││       Page       │ │
+│ └────┬────┘└────┬────┘└───┬───┘└───┬────┘└──┬───┘└─────────┬────────┘ │
+├──────┼──────────┼─────────┼────────┼─────────┼─────────────┼──────────┤
+│      │        Service Layer (services/)      │             │          │
+│ ┌────▼──────┐┌───▼─────┐┌────▼─────┐┌───▼────┐│    ┌────────▼───────┐ │
+│ │ Inventory ││  Sales  ││  Orders  ││Supplier││    │ ml/forecasting │ │
+│ │  Service  ││ Service ││ Service  ││Service ││    │  (XGBoost)     │ │
+│ └────┬──────┘└────┬────┘└────┬─────┘└───┬────┘│    └────────┬───────┘ │
+├──────┼────────────┼──────────┼──────────┼──────┼─────────────┼────────┤
+│      │         Data Layer                      │             │        │
+│ ┌────▼────────────▼──────────▼──────────▼──┐┌──▼───┐┌────────▼──────┐ │
+│ │       SQLAlchemy ORM (database/)          ││ JSON ││ Model registry│ │
+│ │  Models: User │ Medicine │ Inventory │Sale││ Data ││ (ml_models/)  │ │
+│ └──────────────────┬─────────────────────────┘└──────┘└───────────────┘ │
+│                    │                                                   │
+│ ┌──────────────────▼────────────────────────────────────────────────┐ │
+│ │                       Cross-Cutting Concerns                      │ │
+│ │           Auth (bcrypt+RBAC) │ Logging │ Config (Pydantic)        │ │
+│ └─────────────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────────────┘
 ```
+
+A parallel FastAPI REST API (`api/`) shares the same service layer, so business logic is written once and used by both the UI and the API.
 
 ### Design Patterns
 
@@ -140,6 +155,71 @@ This platform integrates **XGBoost regression models** trained on 33,000+ histor
 
 ---
 
+## 🤖 Machine Learning
+
+### XGBoost Stockout Prediction
+
+One XGBoost regression model per medicine (33 total) predicts daily sales
+volume, then simulates forward day-by-day from current stock to estimate
+**Days to Stockout**:
+
+```
+Features: Day index, day-of-week, month, quarter,
+          7-/30-day rolling sales average, 1-/7-day lag
+Output:   Predicted units sold for that day
+Model:    XGBRegressor (100 estimators, squared error)
+```
+
+**Process:**
+1. Train one model per medicine from historical sales data
+2. Starting from current stock, iterate day-by-day subtracting predicted sales
+3. Day count when stock reaches zero = **Days to Stockout**
+
+**Safeguards:**
+- Trained models cached in-process and keyed by a hash of the sales data, so
+  a rerun only retrains when the underlying data actually changes
+- 365-day iteration cap prevents infinite loops
+- Negative predictions clamped to zero
+
+### Validation Methodology
+
+Forecasting demand is a time-series problem, and it's easy to get misleadingly
+good numbers by evaluating a model on data it already memorized. This
+pipeline evaluates honestly:
+
+- **Chronological train/test split** — the most recent ~20% of each
+  medicine's history is held out and never seen during training. Randomly
+  shuffling time-ordered rows (a common mistake) would leak future
+  information into the training set.
+- **Time-series cross-validation** — uses `TimeSeriesSplit`, not a random
+  K-fold, so every validation fold trains only on the past and validates on
+  the future.
+- **Naive baseline comparison** — every model is compared against a
+  "tomorrow = yesterday" baseline evaluated on the *same* held-out window, so
+  the model's value is quantified rather than assumed.
+- **Final refit on all data** — after honest evaluation, the model used for
+  actual predictions is refit on the complete dataset (train + test), which
+  is standard practice: hold out data to validate, then retrain on
+  everything once validated.
+
+### Results
+
+Across all 33 medicines, in-sample R² looks strong (~0.90), but the honest
+held-out test R² is close to zero — a real overfitting signature that only
+proper time-based validation catches. Despite that, the model beats the
+naive baseline by **~27% on test RMSE, on average**, meaning it's still
+decision-useful for reorder timing even though per-medicine daily demand is
+too noisy for any model tried here to explain most of its variance.
+
+The full walkthrough — EDA, feature engineering, the overfitting finding,
+and a head-to-head against a Linear Regression baseline — is in
+[`notebooks/eda_and_modeling.ipynb`](notebooks/eda_and_modeling.ipynb). The
+same results are also browsable live in the app's **Model Insights** page.
+
+![ML Performance Report](ML_PERFORMANCE.png)
+
+---
+
 ## 🛠 Tech Stack
 
 | Layer | Technology | Purpose |
@@ -149,7 +229,7 @@ This platform integrates **XGBoost regression models** trained on 33,000+ histor
 | **ORM** | SQLAlchemy 2.0 | Database abstraction |
 | **Database** | SQLite (WAL mode) | Relational storage |
 | **Validation** | Pydantic v2 | Input/config validation |
-| **Machine Learning** | XGBoost | Stockout forecasting |
+| **Machine Learning** | XGBoost + scikit-learn | Stockout forecasting + validation |
 | **Authentication** | bcrypt | Salted password hashing |
 | **Configuration** | pydantic-settings | Environment management |
 | **Testing** | pytest | Unit test suite |
@@ -160,7 +240,7 @@ This platform integrates **XGBoost regression models** trained on 33,000+ histor
 ## ✨ Key Features
 
 ### 📊 Dashboard
-Real-time inventory overview with color-coded stock charts and sidebar metrics (total medicines, low stock, expired).
+Real-time inventory overview with color-coded stock charts and KPI cards (total medicines, low stock, expired).
 
 ### 📦 Inventory Management
 CRUD operations with AI-powered stockout prediction on every update.
@@ -178,7 +258,7 @@ View medicines grouped by supplier with stock visualizations.
 33 medicines with ATC codes, dosage, cautions, alternatives, and real-time stock display.
 
 ### 🧠 Model Insights
-Held-out test metrics, baseline comparison, and feature importance for the forecasting models — no log-diving required
+Held-out test metrics, baseline comparison, and feature importance for the forecasting models — no log-diving required.
 
 ### 🔐 Authentication & RBAC
 bcrypt hashing, role-based access (admin/user), session timeout, email recovery.
@@ -327,68 +407,6 @@ pharma-stockout-forecasting/
 | password | TEXT | bcrypt hash |
 | role | TEXT | "admin" or "user" |
 | created_at | DATETIME | Registration timestamp |
-
----
-
-## 🤖 Machine Learning
-
-### XGBoost Stockout Prediction
-
-One XGBoost regression model per medicine (33 total) predicts daily sales
-volume, then simulates forward day-by-day from current stock to estimate
-**Days to Stockout**:
-
-```
-Features: Day index, day-of-week, month, quarter,
-          7-/30-day rolling sales average, 1-/7-day lag
-Output:   Predicted units sold for that day
-Model:    XGBRegressor (100 estimators, squared error)
-```
-
-**Process:**
-1. Train one model per medicine from historical sales data
-2. Starting from current stock, iterate day-by-day subtracting predicted sales
-3. Day count when stock reaches zero = **Days to Stockout**
-
-**Safeguards:**
-- Trained models cached in-process and keyed by a hash of the sales data, so
-  a rerun only retrains when the underlying data actually changes
-- 365-day iteration cap prevents infinite loops
-- Negative predictions clamped to zero
-
-### Validation Methodology
-
-Forecasting demand is a time-series problem, and it's easy to get misleadingly
-good numbers by evaluating a model on data it already memorized. This
-pipeline evaluates honestly:
-
-- **Chronological train/test split** — the most recent ~20% of each
-  medicine's history is held out and never seen during training. Randomly
-  shuffling time-ordered rows (a common mistake) would leak future
-  information into the training set.
-- **Time-series cross-validation** — uses `TimeSeriesSplit`, not a random
-  K-fold, so every validation fold trains only on the past and validates on
-  the future.
-- **Naive baseline comparison** — every model is compared against a
-  "tomorrow = yesterday" baseline evaluated on the *same* held-out window, so
-  the model's value is quantified rather than assumed.
-- **Final refit on all data** — after honest evaluation, the model used for
-  actual predictions is refit on the complete dataset (train + test), which
-  is standard practice: hold out data to validate, then retrain on
-  everything once validated.
-
-**Results:** across all 33 medicines, in-sample R² looks strong (~0.90), but
-the honest held-out test R² is close to zero — a real overfitting signature
-that only proper time-based validation catches. Despite that, the model beats
-the naive baseline by **~27% on test RMSE, on average**, meaning it's still
-decision-useful for reorder timing even though per-medicine daily demand is
-too noisy for any model tried here to explain most of its variance. The full
-walkthrough — EDA, feature engineering, the overfitting finding, and a
-head-to-head against a Linear Regression baseline — is in
-[`notebooks/eda_and_modeling.ipynb`](notebooks/eda_and_modeling.ipynb). The
-same results are also browsable live in the app's **Model Insights** page.
-
-![ML Performance Report](ML_PERFORMANCE.png)
 
 ---
 
